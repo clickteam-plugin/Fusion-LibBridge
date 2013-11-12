@@ -11,7 +11,7 @@ EXPORTS
 	LibBridge_cSurface_DESTRUCTOR
 	LibBridge_cSurface_InitializeSurfaces
 	LibBridge_cSurface_FreeSurfaces
-;	LibBridge_cSurface_FreeExternalModules
+;	LibBridge_cSurface_FreeExternalModules ;HWA
 	LibBridge_cSurface_OP_ASSIGN
 	LibBridge_cSurface_Create_1
 	LibBridge_cSurface_Create_2
@@ -42,10 +42,10 @@ EXPORTS
 	LibBridge_cSurface_BeginRendering
 	LibBridge_cSurface_EndRendering
 	LibBridge_cSurface_UpdateScreen
-;	LibBridge_cSurface_GetRenderTargetSurface
-;	LibBridge_cSurface_ReleaseRenderTargetSurface
-;	LibBridge_cSurface_Flush
-;	LibBridge_cSurface_SetZBuffer
+;	LibBridge_cSurface_GetRenderTargetSurface ;HWA
+;	LibBridge_cSurface_ReleaseRenderTargetSurface ;HWA
+;	LibBridge_cSurface_Flush ;HWA
+;	LibBridge_cSurface_SetZBuffer ;HWA
 	LibBridge_cSurface_GetDC
 	LibBridge_cSurface_ReleaseDC
 	LibBridge_cSurface_AttachWindow
@@ -78,7 +78,7 @@ EXPORTS
 	LibBridge_cSurface_Blit_1
 	LibBridge_cSurface_Blit_2
 	LibBridge_cSurface_Blit_3
-;	LibBridge_cSurface_BlitEx
+;	LibBridge_cSurface_BlitEx ;HWA
 	LibBridge_cSurface_Scroll
 	LibBridge_cSurface_FilterBlit_1
 	LibBridge_cSurface_FilterBlit_2
@@ -102,7 +102,7 @@ EXPORTS
 	LibBridge_cSurface_Fill_6
 	LibBridge_cSurface_Fill_7
 	LibBridge_cSurface_Fill_8
-;	LibBridge_cSurface_Fill_9
+;	LibBridge_cSurface_Fill_9 ;HWA
 	LibBridge_cSurface_Ellipse_1
 	LibBridge_cSurface_Ellipse_2
 	LibBridge_cSurface_Rectangle_1
@@ -152,7 +152,7 @@ EXPORTS
 	LibBridge_cSurface_SetScreenMode
 	LibBridge_cSurface_RestoreWindowedMode
 	LibBridge_cSurface_CopyScreenModeInfo
-;	LibBridge_cSurface_SetAutoVSync
+;	LibBridge_cSurface_SetAutoVSync ;HWA
 	LibBridge_cSurface_WaitForVBlank
 	LibBridge_cSurface_GetSysColor
 	LibBridge_cSurface_OnSysColorChange
@@ -170,9 +170,9 @@ EXPORTS
 	LibBridge_cSurface_GetAlphaSurface
 	LibBridge_cSurface_ReleaseAlphaSurface
 	LibBridge_cSurface_CreateMask
-;	LibBridge_cSurface_OnLostDevice
-;	LibBridge_cSurface_AddLostDeviceCallBack
-;	LibBridge_cSurface_RemoveLostDeviceCallBack
+;	LibBridge_cSurface_OnLostDevice ;HWA
+;	LibBridge_cSurface_AddLostDeviceCallBack ;HWA
+;	LibBridge_cSurface_RemoveLostDeviceCallBack ;HWA
 	LibBridge_cSurface_GetSurfaceImplementation
 	LibBridge_cSurface_SetSurfaceImplementation
 	LibBridge_cSurface_BuildSysColorTable
@@ -181,22 +181,91 @@ EXPORTS
 ;;;;Fill.cpp
 	LibBridge_CFillData_DCONSTRUCTOR
 	LibBridge_CFillData_DESTRUCTOR
-	LibBridge_CFillData_DESTRUCTOR_V
 	LibBridge_CFillData_SetFillOrg
-	LibBridge_CFillData_SetFillOrg_V
 	LibBridge_CFillData_Fill_1
-	LibBridge_CFillData_Fill_1_V
 	LibBridge_CFillData_Fill_2
-	LibBridge_CFillData_Fill_2_V
 	LibBridge_CFillFlat_CONSTRUCTOR
 	LibBridge_CFillFlat_CCONSTRUCTOR
-	LibBridge_CFillFlat_Fill
 	LibBridge_CFillDir_CONSTRUCTOR
 	LibBridge_CFillDir_CCONSTRUCTOR
-	LibBridge_CFillDir_SetFillOrg
-	LibBridge_CFillDir_Fill_1
-	LibBridge_CFillDir_Fill_2
 	LibBridge_CFillMosaic_CONSTRUCTOR
 	LibBridge_CFillMosaic_CCONSTRUCTOR
-	LibBridge_CFillMosaic_SetFillOrg
-	LibBridge_CFillMosaic_Fill
+;;;;FilterMgr.cpp
+	LibBridge_CFilterMgr_DCONSTRUCTOR
+	LibBridge_CFilterMgr_DESTRUCTOR
+	LibBridge_CFilterMgr_CreateInstance
+	LibBridge_CFilterMgr_Initialize_1
+	LibBridge_CFilterMgr_Free
+	LibBridge_CFilterMgr_Delete
+	LibBridge_CFilterMgr_GetFilterCount
+	LibBridge_CFilterMgr_GetFilterNameA
+	LibBridge_CFilterMgr_GetFilterFileNameA
+	LibBridge_CFilterMgr_GetFilterID
+	LibBridge_CFilterMgr_GetFilterIndex
+	LibBridge_CFilterMgr_GetFilterExtsA
+	LibBridge_CFilterMgr_GetFilterDependenciesA
+	LibBridge_CFilterMgr_CanReadFile
+	LibBridge_CFilterMgr_CreateFilterObject_1
+	LibBridge_CFilterMgr_CreateFilterObject_2
+	LibBridge_CFilterMgr_CreateFilterObject_3
+	LibBridge_CFilterMgr_RemoveFilter
+	LibBridge_CFilterMgr_Initialize_2
+	LibBridge_CFilterMgr_GetFilterNameW
+	LibBridge_CFilterMgr_GetFilterFileNameW
+	LibBridge_CFilterMgr_GetFilterExtsW
+	LibBridge_CFilterMgr_GetFilterDependenciesW
+;;;;ImageFlt.cpp
+	LibBridge_CImageFilterMgr_DCONSTRUCTOR
+	LibBridge_CImageFilterMgr_CreateInstance
+	LibBridge_CImageFilterMgr_Initialize_1
+	LibBridge_CImageFilterMgr_Initialize_2
+	LibBridge_CImageFilterMgr_DoesFilterSupportImages
+	LibBridge_CImageFilterMgr_DoesFilterSupportAnimations
+	LibBridge_CImageFilter_CONSTRUCTOR
+	LibBridge_CImageFilter_DESTRUCTOR
+	LibBridge_CImageFilter_UseSpecificFilterIndex
+	LibBridge_CImageFilter_UseSpecificFilterID
+	LibBridge_CImageFilter_SetCompressionLevel
+	LibBridge_CImageFilter_Open_1
+	LibBridge_CImageFilter_Open_2
+	LibBridge_CImageFilter_Open_3
+	LibBridge_CImageFilter_PrepareLoading
+	LibBridge_CImageFilter_Load
+	LibBridge_CImageFilter_Save_1
+	LibBridge_CImageFilter_Save_2
+	LibBridge_CImageFilter_Close
+	LibBridge_CImageFilter_GetWidth
+	LibBridge_CImageFilter_GetHeight
+	LibBridge_CImageFilter_GetPitch
+	LibBridge_CImageFilter_GetDepth
+	LibBridge_CImageFilter_GetDataSize
+	LibBridge_CImageFilter_GetPalette
+	LibBridge_CImageFilter_GetTransparentColor
+	LibBridge_CImageFilter_ContainsAlphaChannel
+	LibBridge_CImageFilter_IsAnimation
+	LibBridge_CImageFilter_GetNumberOfFrames
+	LibBridge_CImageFilter_GetCurrentFrame
+	LibBridge_CImageFilter_GetFrameDelay
+	LibBridge_CImageFilter_GetAnimDuration
+	LibBridge_CImageFilter_GetUserInfo
+	LibBridge_CImageFilter_GetUserInfoSize
+	LibBridge_CImageFilter_Restart
+	LibBridge_CImageFilter_GoToImage
+	LibBridge_CImageFilter_GetUpdateRect
+	LibBridge_CImageFilter_GetLoopCount
+	LibBridge_CImageFilter_GetLoopFrame
+	LibBridge_CImageFilter_CreateAnimation_1
+	LibBridge_CImageFilter_CreateAnimation_2
+	LibBridge_CImageFilter_CreateAnimation_3
+	LibBridge_CImageFilter_SaveAnimationFrame_1
+	LibBridge_CImageFilter_SaveAnimationFrame_2
+	LibBridge_CImageFilter_AddPreviousFrameDuration
+	LibBridge_CImageFilter_GetCurrentSaveAnimSize
+	LibBridge_CImageFilter_SetProgressCallBack
+	LibBridge_CImageFilter_GetFilterID
+	LibBridge_CImageFilter_GetFilterNameA
+	LibBridge_CImageFilter_GetFilterIndex
+	LibBridge_CImageFilter_GetFilterColorCaps
+	LibBridge_CImageFilter_CanSave
+	LibBridge_CImageFilter_CanSaveAnim
+	LibBridge_CImageFilter_GetFilterNameW
