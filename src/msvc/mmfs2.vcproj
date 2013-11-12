@@ -317,7 +317,19 @@
 			</File>
 		</Filter>
 		<File
+			RelativePath=".\CfcFile.cpp"
+			>
+		</File>
+		<File
 			RelativePath=".\Fill.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\FilterMgr.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\ImageFlt.cpp"
 			>
 		</File>
 		<File
