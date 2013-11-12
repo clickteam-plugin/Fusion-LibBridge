@@ -1,4 +1,5 @@
 EXPORTS
+;;;;Surface.cpp
 	LibBridge_NewSurface
 	LibBridge_DeleteSurface
 	LibBridge_GetSurfacePrototype
@@ -177,3 +178,25 @@ EXPORTS
 	LibBridge_cSurface_BuildSysColorTable
 	LibBridge_cSurface_SetDrawClip
 	LibBridge_cSurface_RestoreDrawClip
+;;;;Fill.cpp
+	LibBridge_CFillData_DCONSTRUCTOR
+	LibBridge_CFillData_DESTRUCTOR
+	LibBridge_CFillData_DESTRUCTOR_V
+	LibBridge_CFillData_SetFillOrg
+	LibBridge_CFillData_SetFillOrg_V
+	LibBridge_CFillData_Fill_1
+	LibBridge_CFillData_Fill_1_V
+	LibBridge_CFillData_Fill_2
+	LibBridge_CFillData_Fill_2_V
+	LibBridge_CFillFlat_CONSTRUCTOR
+	LibBridge_CFillFlat_CCONSTRUCTOR
+	LibBridge_CFillFlat_Fill
+	LibBridge_CFillDir_CONSTRUCTOR
+	LibBridge_CFillDir_CCONSTRUCTOR
+	LibBridge_CFillDir_SetFillOrg
+	LibBridge_CFillDir_Fill_1
+	LibBridge_CFillDir_Fill_2
+	LibBridge_CFillMosaic_CONSTRUCTOR
+	LibBridge_CFillMosaic_CCONSTRUCTOR
+	LibBridge_CFillMosaic_SetFillOrg
+	LibBridge_CFillMosaic_Fill

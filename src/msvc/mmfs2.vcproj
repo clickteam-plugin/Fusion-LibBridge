@@ -317,6 +317,10 @@
 			</File>
 		</Filter>
 		<File
+			RelativePath=".\Fill.cpp"
+			>
+		</File>
+		<File
 			RelativePath=".\mmfs2.def"
 			>
 		</File>
