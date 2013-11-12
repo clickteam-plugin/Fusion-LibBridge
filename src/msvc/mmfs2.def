@@ -1,0 +1,3 @@
+EXPORTS
+	LibBridge_NewSurface
+	LibBridge_DeleteSurface
