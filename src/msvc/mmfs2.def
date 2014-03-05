@@ -209,7 +209,10 @@ EXPORTS
 	LibBridge_csPalette_GetNearColorIndex_Fast
 
 ;;;;Props.cpp
-	;
+	LibBridge_CPropValue_Delete
+	LibBridge_CPropValue_CreateCopy
+	LibBridge_CPropValue_IsEqual
+	LibBridge_CPropValue_GetClassID
 
 ;;;;SoundConverter.cpp
 	LibBridge_GetConversionFunction
