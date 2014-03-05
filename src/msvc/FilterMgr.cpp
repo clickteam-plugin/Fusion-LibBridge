@@ -1,4 +1,7 @@
 #include "Ccxhdr.h"
+#include "FilterMgr.h"
+
+#include <new>
 
 extern "C"
 {
@@ -12,7 +15,7 @@ extern "C"
 	}
 	CFilterMgr *LibBridge_CFilterMgr_CreateInstance()
 	{
-		return CreateInstance();
+		return CFilterMgr::CreateInstance();
 	}
 	void LibBridge_CFilterMgr_Initialize_1(CFilterMgr *This, LPCSTR fp, LPCSTR ft, DWORD flags)
 	{
@@ -44,7 +47,7 @@ extern "C"
 	}
 	int LibBridge_CFilterMgr_GetFilterIndex(CFilterMgr *This, DWORD ID)
 	{
-		This->GetFilterIndex(ID);
+		return This->GetFilterIndex(ID);
 	}
 	LPCSTR *LibBridge_CFilterMgr_GetFilterExtsA(CFilterMgr *This, int index)
 	{

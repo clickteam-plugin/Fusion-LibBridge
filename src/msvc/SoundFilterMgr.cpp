@@ -1,4 +1,7 @@
 #include "Ccxhdr.h"
+#include "SoundFilterMgr.h"
+
+#include <new>
 
 extern "C"
 {

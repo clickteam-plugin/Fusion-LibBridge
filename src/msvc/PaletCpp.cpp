@@ -1,4 +1,7 @@
 #include "Ccxhdr.h"
+#include "PaletCpp.h"
+
+#include <new>
 
 extern "C"
 {

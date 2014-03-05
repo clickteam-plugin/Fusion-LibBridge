@@ -1,4 +1,7 @@
 #include "Ccxhdr.h"
+#include "Props.h"
+
+#include <new>
 
 extern "C"
 {
@@ -6,7 +9,7 @@ extern "C"
 	{
 		return This->Delete();
 	}
-	CPropValue *LibBridge_CPropValue_CreateCopy(CpropValue *This)
+	CPropValue *LibBridge_CPropValue_CreateCopy(CPropValue *This)
 	{
 		return This->CreateCopy();
 	}

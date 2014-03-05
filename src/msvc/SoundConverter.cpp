@@ -1,4 +1,7 @@
 #include "Ccxhdr.h"
+#include "SoundConverter.h"
+
+#include <new>
 
 extern "C"
 {

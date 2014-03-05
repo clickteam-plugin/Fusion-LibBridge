@@ -1,4 +1,7 @@
 #include "Ccxhdr.h"
+#include "Mvt.h"
+
+#include <new>
 
 extern "C"
 {

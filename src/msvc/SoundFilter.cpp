@@ -1,14 +1,13 @@
 #include "Ccxhdr.h"
+#include "SoundFilter.h"
+
+#include <new>
 
 extern "C"
 {
 	DWORD LibBridge_GetRecommendedBufferSize(LPWAVEFORMATEX wf)
 	{
 		return GetRecommendedBufferSize(wf);
-	}
-	void LibBridge_CSoundFilter_DCONSTRUCTOR(CSoundFilter *This)
-	{
-		new (This) CSoundFilter;
 	}
 	void LibBridge_CSoundFilter_DESTRUCTOR(CSoundFilter *This)
 	{

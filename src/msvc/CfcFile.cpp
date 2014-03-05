@@ -1,4 +1,7 @@
 #include "Ccxhdr.h"
+#include "CfcFile.h"
+
+#include <new>
 
 extern "C"
 {
@@ -16,7 +19,7 @@ extern "C"
 	}
 	int LibBridge_CInputFile_Read_2(CInputFile *This, LPBYTE d, DWORD s, LPDWORD real)
 	{
-		This->Read(d, s, real);
+		return This->Read(d, s, real);
 	}
 	int LibBridge_CInputFile_ReadByte(CInputFile *This, LPBYTE d)
 	{
@@ -210,7 +213,7 @@ extern "C"
 	{
 		return This->GetFileNameW();
 	}
-	void LibBridge_COutputMemFile_DCONSTRUCTOR(COuputMemFile *This)
+	void LibBridge_COutputMemFile_DCONSTRUCTOR(COutputMemFile *This)
 	{
 		new (This) COutputMemFile;
 	}

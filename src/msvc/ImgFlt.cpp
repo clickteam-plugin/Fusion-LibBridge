@@ -1,4 +1,8 @@
 #include "Ccxhdr.h"
+#include "ImageFlt.h"
+#include "ImgFlt.h"
+
+#include <new>
 
 extern "C"
 {
@@ -10,7 +14,7 @@ extern "C"
 	{
 		return GetNextAnimationFrame(ifm, surf, iF);
 	}
-	BOOL LibBridge_EndAnimationImport(CImageFilterMgr *ifm, CImageFilter *iF)
+	void LibBridge_EndAnimationImport(CImageFilterMgr *ifm, CImageFilter *iF)
 	{
 		return EndAnimationImport(ifm, iF);
 	}
@@ -18,7 +22,7 @@ extern "C"
 	{
 		return ExportNextFrame(ifm, surf, iF, framdur);
 	}
-	BOOL LibBridge_EndAnimationExport(CImageFilterMgr *ifm, CImageFilter *iF)
+	void LibBridge_EndAnimationExport(CImageFilterMgr *ifm, CImageFilter *iF)
 	{
 		return EndAnimationExport(ifm, iF);
 	}
@@ -84,27 +88,27 @@ extern "C"
 	{
 		return ImportImage(ifm, fname, surf, fID, flags);
 	}
-	BOOL LibBridge_CanImportImage(CImageFilerMgr *ifm, LPCSTR fname)
+	BOOL LibBridge_CanImportImage(CImageFilterMgr *ifm, LPCSTR fname)
 	{
 		return CanImportImage(ifm, fname);
 	}
-	BOOL LibBridge_ImportPalette(CImageFIlterMgr *ifm, LPCSTR fname, LPLOGPALETTE pal)
+	BOOL LibBridge_ImportPalette(CImageFilterMgr *ifm, LPCSTR fname, LPLOGPALETTE pal)
 	{
 		return ImportPalette(ifm, fname, pal);
 	}
-	BOOL LibBridge_ExportImage(CImageFIlterMgr *ifm, LPCSTR fname, cSurface *surf, DWORD fID)
+	BOOL LibBridge_ExportImage(CImageFilterMgr *ifm, LPCSTR fname, cSurface *surf, DWORD fID)
 	{
 		return ExportImage(ifm, fname, surf, fID);
 	}
-	BOOL LibBridge_CanImportAnimation(CImageFIlterMgr *ifm, LPCSTR fname, BOOL *needconv)
+	BOOL LibBridge_CanImportAnimation(CImageFilterMgr *ifm, LPCSTR fname, BOOL *needconv)
 	{
 		return CanImportAnimation(ifm, fname, needconv);
 	}
-	BOOL LibBridge_BeginAnimationImport(CImageFIlterMgr *ifm, LPCSTR fname, cSurface *surf, CImageFilter *iF, DWORD flags)
+	BOOL LibBridge_BeginAnimationImport(CImageFilterMgr *ifm, LPCSTR fname, cSurface *surf, CImageFilter *iF, DWORD flags)
 	{
 		return BeginAnimationImport(ifm, fname, surf, iF, flags);
 	}
-	BOOL LibBridge_BeginAnimationExport(CImageFIlterMgr *ifm, LPCSTR fname, cSurface *surf, CImageFilter *iF, int frames, int framdur, int loops, int loopframe)
+	BOOL LibBridge_BeginAnimationExport(CImageFilterMgr *ifm, LPCSTR fname, cSurface *surf, CImageFilter *iF, int frames, int framdur, int loops, int loopframe)
 	{
 		return BeginAnimationExport(ifm, fname, surf, iF, frames, framdur, loops, loopframe);
 	}

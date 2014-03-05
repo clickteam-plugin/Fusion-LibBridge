@@ -65,9 +65,6 @@ EXPORTS
 	LibBridge_COutputBufFile_Create_3
 
 ;;;;Fill.cpp
-	LibBridge_CFillData_DCONSTRUCTOR
-	LibBridge_CFillData_DESTRUCTOR
-	LibBridge_CFillData_SetFillOrg
 	LibBridge_CFillData_Fill_1
 	LibBridge_CFillData_Fill_2
 	LibBridge_CFillFlat_CONSTRUCTOR
@@ -219,7 +216,6 @@ EXPORTS
 
 ;;;;SoundFilter.cpp
 	LibBridge_GetRecommendedBufferSize
-	LibBridge_CSoundFilter_DCONSTRUCTOR
 	LibBridge_CSoundFilter_DESTRUCTOR
 	LibBridge_CSoundFilter_Delete
 	LibBridge_CSoundFilter_Open
@@ -415,6 +411,3 @@ EXPORTS
 ;	LibBridge_cSurface_RemoveLostDeviceCallBack ;HWA
 	LibBridge_cSurface_GetSurfaceImplementation
 	LibBridge_cSurface_SetSurfaceImplementation
-	LibBridge_cSurface_BuildSysColorTable
-	LibBridge_cSurface_SetDrawClip
-	LibBridge_cSurface_RestoreDrawClip

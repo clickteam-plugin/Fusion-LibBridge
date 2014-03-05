@@ -172,55 +172,11 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\include\BlitMac.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\Ccx.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\Ccxhdr.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\CfcError.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\include\CfcFile.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\include\CFCMacro.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\Cncf.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\cncr.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\Cncy.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\include\Cnpdll.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\colors.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\D3dSurfInfo.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\EVTCCX.H"
 				>
 			</File>
 			<File
@@ -232,10 +188,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\include\GlobalPCH.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\include\ImageFlt.h"
 				>
 			</File>
@@ -244,15 +196,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\include\ImgFltDefs.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\include\Mvt.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\Palet.h"
 				>
 			</File>
 			<File
@@ -260,31 +204,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\include\Patch.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\PictEdDefs.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\include\Props.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\include\PTYPE.H"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\SndDefs.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\include\SoundConverter.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\SoundError.h"
 				>
 			</File>
 			<File
@@ -296,25 +220,105 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\include\StdDefs.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\include\Surface.h"
 				>
 			</File>
-			<File
-				RelativePath="..\..\include\SurfaceDefs.h"
+			<Filter
+				Name="Header Only"
 				>
-			</File>
-			<File
-				RelativePath="..\..\include\TigsExt.hpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\WinMacro.h"
-				>
-			</File>
+				<File
+					RelativePath="..\..\include\BlitMac.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\Ccx.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\Ccxhdr.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\CfcError.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\CFCMacro.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\Cncf.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\cncr.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\Cncy.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\colors.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\D3dSurfInfo.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\EVTCCX.H"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\GlobalPCH.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\ImgFltDefs.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\Palet.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\Patch.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\PictEdDefs.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\PTYPE.H"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\SndDefs.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\SoundError.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\StdDefs.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\SurfaceDefs.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\TigsExt.hpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\include\WinMacro.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\CfcFile.cpp"
@@ -333,7 +337,35 @@
 			>
 		</File>
 		<File
+			RelativePath=".\ImgFlt.cpp"
+			>
+		</File>
+		<File
 			RelativePath=".\mmfs2.def"
+			>
+		</File>
+		<File
+			RelativePath=".\Mvt.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\PaletCpp.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\Props.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\SoundConverter.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\SoundFilter.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\SoundFilterMgr.cpp"
 			>
 		</File>
 		<File

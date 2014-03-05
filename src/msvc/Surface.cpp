@@ -1,4 +1,7 @@
 #include "Ccxhdr.h"
+#include "Surface.h"
+
+#include <new>
 
 extern "C"
 {
@@ -10,7 +13,7 @@ extern "C"
 	{
 		return DeleteSurface(surf);
 	}
-	BOOL LibBridge_GetSurfacePrototype(LPSURFACE *protr, int depth, int st, int drv)
+	BOOL LibBridge_GetSurfacePrototype(LPSURFACE *proto, int depth, int st, int drv)
 	{
 		return GetSurfacePrototype(proto, depth, st, drv);
 	}
@@ -60,11 +63,11 @@ extern "C"
 	{
 		return This->Create(width, height, prototype);
 	}
-	void LibBridge_cSurface_Create_2(HDC dc)
+	void LibBridge_cSurface_Create_2(cSurface *This, HDC dc)
 	{
 		return This->Create(dc);
 	}
-	void LibBridge_cSurface_Create_3(HWND wnd, BOOL IncludeFrame)
+	void LibBridge_cSurface_Create_3(cSurface *This, HWND wnd, BOOL IncludeFrame)
 	{
 		return This->Create(wnd, IncludeFrame);
 	}
@@ -246,7 +249,7 @@ extern "C"
 	{
 		return This->LoadImageW(bmi, bits, flags);
 	}
-	BOOL LibBridge_cSurface_SaveImage_1(cSurface *This, HFIE f, SIFlags flags)
+	BOOL LibBridge_cSurface_SaveImage_1(cSurface *This, HFILE f, SIFlags flags)
 	{
 		return This->SaveImage(f, flags);
 	}
@@ -324,7 +327,7 @@ extern "C"
 		return This->BlitEx(dest, dx, dy, fsx, fsy, sx, sy, sw, sh, center, angle, bm, bo, param, flags);
 	}
 #endif
-	BOOL LibBridge_cSurface_Scroll(cSurface *This, int dx, int dy, nt sx, int sy, int w, int h)
+	BOOL LibBridge_cSurface_Scroll(cSurface *This, int dx, int dy, int sx, int sy, int w, int h)
 	{
 		return This->Scroll(dx, dy, sx, sy, w, h);
 	}
@@ -380,7 +383,7 @@ extern "C"
 	{
 		return This->Minimize(r);
 	}
-	BOOL LibBridge_cSurface_CaptureDC(HDC s, HDC d LONG sx, LONG sy, LONG dx, LONG dy, LONG sw, LONG sh, LONG dw, LONG dh, BOOL flush, BOOL keep)
+	BOOL LibBridge_cSurface_CaptureDC(HDC s, HDC d, LONG sx, LONG sy, LONG dx, LONG dy, LONG sw, LONG sh, LONG dw, LONG dh, BOOL flush, BOOL keep)
 	{
 		return cSurface::CaptureDC(s, d, sx, sy, dx, dy, sw, sh, dw, dh, flush, keep);
 	}
@@ -456,21 +459,21 @@ extern "C"
 	}
 	BOOL LibBridge_cSurface_Ellipse_4(cSurface *This, int l, int t, int r, int b, CFillData *fdf, BOOL aa, BlitMode bm, BlitOp bo, LPARAM param)
 	{
-		return This->Ellipse(l, t, r, b, fdf, aa, bm, bo param);
+		return This->Ellipse(l, t, r, b, fdf, aa, bm, bo, param);
 	}
 	BOOL LibBridge_cSurface_Ellipse_5(cSurface *This, int l, int t, int r, int b, CFillData *fdf, int th, CFillData *fdo, BOOL aa, BlitMode bm, BlitOp bo, LPARAM param, BOOL fill)
 	{
-		return This->Ellipse(l, t, r, b, fdf, th, fdo, aa, bm, bo param, fill);
+		return This->Ellipse(l, t, r, b, fdf, th, fdo, aa, bm, bo, param, fill);
 	}
 	BOOL LibBridge_cSurface_Rectangle_3(cSurface *This, int l, int t, int r, int b, int th, CFillData *fdo, BOOL aa, BlitMode bm, BlitOp bo, LPARAM param)
 	{
 		return This->Rectangle(l, t, r, b, th, fdo, aa, bm, bo, param);
 	}
-	BOOL LibBridge_cSurface_Rectangle_4(cSurface *This, int l, int t, int r, int b, CFilData *fdf, BOOL aa, BlitMode bm, BlitOp bo, LPARAM param)
+	BOOL LibBridge_cSurface_Rectangle_4(cSurface *This, int l, int t, int r, int b, CFillData *fdf, BOOL aa, BlitMode bm, BlitOp bo, LPARAM param)
 	{
 		return This->Rectangle(l, t, r, b, fdf, aa, bm, bo, param);
 	}
-	BOOL LibBridge_cSurface_Rectangle_5(cSurface *This, int l, int t, int r, int b, CFilData *fdf, int th, CFillData *fdo, BOOL aa, BlitMode bm, BlitOp bo, LPARAM param, BOOL fill)
+	BOOL LibBridge_cSurface_Rectangle_5(cSurface *This, int l, int t, int r, int b, CFillData *fdf, int th, CFillData *fdo, BOOL aa, BlitMode bm, BlitOp bo, LPARAM param, BOOL fill)
 	{
 		return This->Rectangle(l, t, r, b, fdf, th, fdo, aa, bm, bo, param, fill);
 	}
@@ -526,21 +529,21 @@ extern "C"
 #endif
 		angle)
 	{
-		return cSurface::GetSizeOfRotatedRect(w, h);
+		return cSurface::GetSizeOfRotatedRect(w, h, angle);
 	}
-	int LibBridge_cSurface_TextOutA(cSurface *This, LPCSTR text, DWORD len, int x, int y, DWORD align, LPRECT clip, CLORREF color, HFONT font, BlitMode bm, BlitOp bo, LPARAM param, int aa)
+	int LibBridge_cSurface_TextOutA(cSurface *This, LPCSTR text, DWORD len, int x, int y, DWORD align, LPRECT clip, COLORREF color, HFONT font, BlitMode bm, BlitOp bo, LPARAM param, int aa)
 	{
 		return This->TextOutA(text, len, x, y, align, clip, color, font, bm, bo, param, aa);
 	}
-	int LibBridge_cSurface_TextOutW(cSurface *This, LPCWSTR text, DWORD len, int x, int y, DWORD align, LPRECT clip, CLORREF color, HFONT font, BlitMode bm, BlitOp bo, LPARAM param, int aa)
+	int LibBridge_cSurface_TextOutW(cSurface *This, LPCWSTR text, DWORD len, int x, int y, DWORD align, LPRECT clip, COLORREF color, HFONT font, BlitMode bm, BlitOp bo, LPARAM param, int aa)
 	{
 		return This->TextOutW(text, len, x, y, align, clip, color, font, bm, bo, param, aa);
 	}
-	int LibBridge_cSurface_DrawTextA(cSurface *This, LPCSTR text, DWORD len, LPRECT r, DWORD flags, COLORREF color, HFONT font, BlitMode bm, BlitOp bo, LPARAM param, int aa, DWORD lm, DOWRD rm, DWORD ts)
+	int LibBridge_cSurface_DrawTextA(cSurface *This, LPCSTR text, DWORD len, LPRECT r, DWORD flags, COLORREF color, HFONT font, BlitMode bm, BlitOp bo, LPARAM param, int aa, DWORD lm, DWORD rm, DWORD ts)
 	{
 		return This->DrawTextA(text, len, r, flags, color, font, bm, bo, param, aa, lm, rm, ts);
 	}
-	int LibBridge_cSurface_DrawTextW(cSurface *This, LPCWSTR text, DWORD len, LPRECT r, DWORD flags, COLORREF color, HFONT font, BlitMode bm, BlitOp bo, LPARAM param, int aa, DWORD lm, DOWRD rm, DWORD ts)
+	int LibBridge_cSurface_DrawTextW(cSurface *This, LPCWSTR text, DWORD len, LPRECT r, DWORD flags, COLORREF color, HFONT font, BlitMode bm, BlitOp bo, LPARAM param, int aa, DWORD lm, DWORD rm, DWORD ts)
 	{
 		return This->DrawTextW(text, len, r, flags, color, font, bm, bo, param, aa, lm, rm, ts);
 	}
@@ -714,22 +717,10 @@ extern "C"
 #endif
 	cSurfaceImplementation *LibBridge_cSurface_GetSurfaceImplementation(cSurface &s)
 	{
-		return cSurface::GetSurfaceImplementation(cs);
+		return GetSurfaceImplementation(s);
 	}
 	void LibBridge_cSurface_SetSurfaceImplementation(cSurface &s, cSurfaceImplementation *si)
 	{
-		return cSurface::SetSurfaceImplementation(s, si);
-	}
-	void LibBridge_cSurface_BuildSysColorTable()
-	{
-		return cSurface::BuildSysColorTable();
-	}
-	HRGN LibBridge_cSurface_SetDrawClip(cSurface *This, HDC dc)
-	{
-		return This->SetDrawClip(dc);
-	}
-	void LibBridge_cSurface_RestoreDrawClip(HDC dc, HRGN old)
-	{
-		return This->RestoreDrawClip(dc, old);
+		return SetSurfaceImplementation(s, si);
 	}
 }

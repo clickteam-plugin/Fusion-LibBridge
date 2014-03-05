@@ -1,4 +1,7 @@
 #include "Ccxhdr.h"
+#include "ImageFlt.h"
+
+#include <new>
 
 extern "C"
 {
@@ -22,7 +25,7 @@ extern "C"
 	{
 		return This->DoesFilterSupportImages(index);
 	}
-	BOOL LibBridge_CImageFilterMgr_DoesFilterSupportAnimations(CImageFIlterMgr *This, int index)
+	BOOL LibBridge_CImageFilterMgr_DoesFilterSupportAnimations(CImageFilterMgr *This, int index)
 	{
 		return This->DoesFilterSupportAnimations(index);
 	}
@@ -142,7 +145,7 @@ extern "C"
 	{
 		return This->Restart();
 	}
-	int LibBridge_CImageFilter_GoToImage(CImageFilter *This, LPBYTE data int p, int n)
+	int LibBridge_CImageFilter_GoToImage(CImageFilter *This, LPBYTE data, int p, int n)
 	{
 		return This->GoToImage(data, p, n);
 	}
